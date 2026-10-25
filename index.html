@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#201916">
+<meta name="description" content="La Saint-Martin approche : retrouve les jeux du Boudin Ranch et de Fuyez le Totché.">
+<title>Saint-Martin — Les jeux</title>
+<style>
+:root{color-scheme:dark;--bg:#201916;--paper:#f8ead5;--muted:#c8b7a1;--orange:#e96e3a;--gold:#f1c27c;--line:#ffffff20}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0}
+body{overflow:hidden;background:radial-gradient(ellipse at 50% 15%,#513029 0,#2c211d 43%,var(--bg) 80%);color:var(--paper);font-family:ui-rounded,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+.page{height:100dvh;min-height:0;width:min(100%,850px);margin:auto;padding:calc(env(safe-area-inset-top) + 16px) 22px calc(env(safe-area-inset-bottom) + 12px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(10px,2.2vh,20px);text-align:center}
+.eyebrow{margin:0;color:var(--gold);font-size:clamp(10px,2.6vw,12px);font-weight:850;letter-spacing:.25em;text-transform:uppercase}
+h1{font-family:Impact,"Arial Narrow",system-ui,sans-serif;font-size:clamp(36px,8.5vw,64px);line-height:.88;letter-spacing:-.025em;margin:0;text-transform:uppercase;text-shadow:3px 4px 0 #8d392f,6px 7px 0 #100b09}
+.subtitle{font-size:clamp(11px,3vw,14px);color:#e2cfc1;margin:0;letter-spacing:.06em}
+.countdown{width:100%;max-width:530px;background:#120e0db0;border:1px solid #e7a66c66;border-radius:16px;padding:clamp(10px,2.4vh,17px) clamp(10px,3vw,20px);box-shadow:0 12px 35px #0003}
+.count-title{margin:0 0 10px;color:#ffbe8a;font-size:clamp(10px,2.7vw,13px);font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+.date{font-size:clamp(12px,3.4vw,16px);font-weight:800;letter-spacing:.04em;margin:0 0 12px;color:#fff1df}
+.units{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
+.unit{background:#33231f;border:1px solid #f0c18a30;border-radius:10px;padding:clamp(8px,2vh,13px) 3px}
+.num{display:block;font-size:clamp(22px,6vw,38px);font-weight:950;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.055em}
+.label{display:block;margin-top:6px;color:#d5b8a4;font-size:clamp(8px,2.2vw,10px);font-weight:850;letter-spacing:.1em;text-transform:uppercase}
+.games{width:100%;max-width:720px;min-height:0}
+.games-heading{margin:0 0 10px;font-size:clamp(11px,2.8vw,14px);letter-spacing:.16em;text-transform:uppercase;color:#f1d5bc;font-weight:900}
+.slider-shell{position:relative;width:100%;overflow:hidden}
+.slider{display:flex;gap:14px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;padding:2px 2px 9px;-webkit-overflow-scrolling:touch}
+.slider::-webkit-scrollbar{display:none}
+.game{flex:0 0 calc(50% - 7px);min-width:0;scroll-snap-align:center;text-decoration:none;color:inherit;text-align:left;border:1px solid var(--line);background:linear-gradient(155deg,#453029,#251c19);border-radius:16px;padding:clamp(9px,2vw,14px);box-shadow:0 8px 20px #0003;transition:transform .18s,border-color .18s}
+.game:active{transform:scale(.98)}.game:focus-visible,.arrow:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.tile{width:min(100%,160px);aspect-ratio:1;margin:0 auto 10px;border-radius:26%;overflow:hidden;position:relative;display:grid;place-items:center;box-shadow:inset 0 1px 1px #ffffff40,0 5px 13px #0004}
+.tile svg{display:block;width:100%;height:100%}
+.game-title{font-size:clamp(13px,3.8vw,18px);font-weight:950;margin:0 0 3px;line-height:1.05}
+.game-desc{font-size:clamp(9px,2.6vw,12px);line-height:1.35;color:#d5c2b2;margin:0}
+.play{display:flex;align-items:center;justify-content:space-between;margin-top:10px;padding-top:8px;border-top:1px solid var(--line);font-size:10px;font-weight:950;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+.nav{display:flex;align-items:center;justify-content:center;gap:15px;margin-top:1px}
+.arrow{width:34px;height:30px;border:1px solid #e4b17a66;background:#2d211d;color:#ffdfb7;border-radius:10px;font-size:20px;line-height:1;cursor:pointer}
+.dots{display:flex;align-items:center;gap:6px}.dot{width:6px;height:6px;border-radius:50%;background:#8b7162}.dot.active{width:18px;border-radius:10px;background:#f0b873}
+.footer{font-size:9px;color:#9a8172;letter-spacing:.12em;margin:0}
+@media(min-width:600px){.page{gap:clamp(12px,2.4vh,22px)}.game{flex-basis:calc(50% - 7px)}}
+@media(max-height:700px){.page{gap:8px;padding-top:calc(env(safe-area-inset-top) + 8px);padding-bottom:calc(env(safe-area-inset-bottom) + 6px)}h1{font-size:clamp(32px,7.2vh,52px)}.countdown{padding:9px 12px}.count-title{margin-bottom:6px}.date{margin-bottom:7px}.unit{padding:7px 2px}.num{font-size:clamp(20px,5.4vh,32px)}.games-heading{margin-bottom:6px}.tile{width:min(100%,min(25vw,125px));margin-bottom:7px}.game{padding:8px}.play{margin-top:6px;padding-top:6px}}
+@media(max-height:570px){.eyebrow{display:none}.page{gap:6px}h1{font-size:clamp(27px,6.5vh,40px)}.subtitle{display:none}.count-title{display:none}.countdown{padding:7px 10px}.date{margin-bottom:6px}.games-heading{display:none}.tile{width:min(23vh,90px);border-radius:22%;margin-bottom:5px}.game{padding:7px}.game-desc{display:none}.footer{display:none}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="page">
+  <p class="eyebrow">La fête approche…</p>
+  <h1>Saint-Martin</h1>
+  <p class="subtitle">Deux jeux. Une seule mission : survivre à la fête.</p>
+  <section class="countdown" aria-label="Compte à rebours jusqu'à la Saint-Martin">
+    <p class="count-title" id="countTitle">Plus que…</p>
+    <p class="date">SAMEDI 21 NOVEMBRE 2026 · 12 H 40</p>
+    <div class="units" aria-live="off">
+      <div class="unit"><span class="num" id="days">--</span><span class="label">Jours</span></div>
+      <div class="unit"><span class="num" id="hours">--</span><span class="label">Heures</span></div>
+      <div class="unit"><span class="num" id="minutes">--</span><span class="label">Minutes</span></div>
+      <div class="unit"><span class="num" id="seconds">--</span><span class="label">Secondes</span></div>
+    </div>
+  </section>
+  <section class="games" aria-label="Choisir un jeu">
+    <h2 class="games-heading">Choisis ton jeu</h2>
+    <div class="slider-shell">
+      <div class="slider" id="slider">
+        <a class="game" href="https://teurpif.github.io/boudin-ranch/" target="_blank" rel="noopener" aria-label="Jouer à Boudin Ranch">
+          <div class="tile" role="img" aria-label="Icône Boudin Ranch">
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <defs><linearGradient id="rbg" x2="0" y2="1"><stop stop-color="#b97942"/><stop offset="1" stop-color="#422419"/></linearGradient><linearGradient id="sausage" x2="0" y2="1"><stop stop-color="#5c3020"/><stop offset="1" stop-color="#1b0d0a"/></linearGradient></defs>
+              <rect width="160" height="160" fill="url(#rbg)"/><path d="M0 43L80 10 160 43V59H0Z" fill="#2f1b12"/><path d="M9 45L80 17 151 45" fill="none" stroke="#d39b57" stroke-width="5"/>
+              <path d="M22 48V113M42 48V105M118 48V105M138 48V113" stroke="#61371f" stroke-width="8"/><path d="M18 104L142 104 151 125 8 125Z" fill="#785033"/><ellipse cx="80" cy="129" rx="48" ry="10" fill="#1a0c08" opacity=".45"/>
+              <path d="M48 94Q35 76 50 57Q64 46 80 58Q98 45 111 63Q126 81 110 96L102 112H58Z" fill="#332019" stroke="#c18a4a" stroke-width="3"/><path d="M52 77Q63 67 78 76Q93 66 108 77L103 92Q80 101 57 92Z" fill="url(#sausage)" stroke="#e4b06b" stroke-width="2"/><path d="M59 81Q80 87 101 81" fill="none" stroke="#a66a40" stroke-width="4" stroke-linecap="round"/>
+              <circle cx="64" cy="68" r="4" fill="#ffe0a1"/><circle cx="96" cy="68" r="4" fill="#ffe0a1"/><path d="M68 98L62 112M92 98L98 112" stroke="#d69a59" stroke-width="6" stroke-linecap="round"/><text x="80" y="144" text-anchor="middle" font-family="Impact,system-ui" font-size="17" font-weight="900" fill="#ffe5b0" stroke="#3a1d10" stroke-width="1.5" paint-order="stroke">RANCH</text>
+            </svg>
+          </div>
+          <p class="game-title">Boudin Ranch</p><p class="game-desc">Vise juste. Fais grimper le score.</p><div class="play"><span>Jouer</span><span aria-hidden="true">↗</span></div>
+        </a>
+        <a class="game" href="https://teurpif.github.io/fuyez-le-totche/" target="_blank" rel="noopener" aria-label="Jouer à Fuyez le Totché">
+          <div class="tile" role="img" aria-label="Icône Fuyez le Totché">
+            <svg viewBox="0 0 160 160" aria-hidden="true">
+              <defs><linearGradient id="tbg" x2="0" y2="1"><stop stop-color="#f08243"/><stop offset="1" stop-color="#6f2926"/></linearGradient><linearGradient id="shirt" x2="0" y2="1"><stop stop-color="#fff9ec"/><stop offset="1" stop-color="#bfa995"/></linearGradient></defs>
+              <rect width="160" height="160" fill="url(#tbg)"/><circle cx="80" cy="69" r="55" fill="#f5b763" opacity=".28"/><path d="M25 133L39 92 60 85 100 85 121 94 138 133Z" fill="url(#shirt)" stroke="#4c2821" stroke-width="4" stroke-linejoin="round"/><path d="M57 88L60 133M103 88L100 133" stroke="#9b8576" stroke-width="3"/>
+              <ellipse cx="80" cy="61" rx="33" ry="37" fill="#f0b8a0" stroke="#5f2c25" stroke-width="4"/><path d="M52 49Q43 28 59 20Q75 29 75 42M103 49Q117 26 130 35Q130 53 108 59" fill="#e78e83" stroke="#5f2c25" stroke-width="4" stroke-linejoin="round"/><ellipse cx="68" cy="58" rx="5" ry="7" fill="#38201d"/><ellipse cx="94" cy="58" rx="5" ry="7" fill="#38201d"/><ellipse cx="81" cy="73" rx="17" ry="12" fill="#d9756b" stroke="#5f2c25" stroke-width="3"/><ellipse cx="75" cy="72" rx="2.5" ry="4" fill="#632923"/><ellipse cx="87" cy="72" rx="2.5" ry="4" fill="#632923"/><path d="M66 83Q81 95 97 82" fill="none" stroke="#5f2c25" stroke-width="4" stroke-linecap="round"/><path d="M50 112L39 124M110 112L121 124" stroke="#f0b8a0" stroke-width="10" stroke-linecap="round"/><text x="80" y="148" text-anchor="middle" font-family="Impact,system-ui" font-size="15" font-weight="900" fill="#fff0d5" stroke="#5f2c25" stroke-width="2" paint-order="stroke">TOTCHÉ !</text>
+            </svg>
+          </div>
+          <p class="game-title">Fuyez le Totché</p><p class="game-desc">Cours, esquive et tiens le plus longtemps possible.</p><div class="play"><span>Jouer</span><span aria-hidden="true">↗</span></div>
+        </a>
+      </div>
+    </div>
+    <div class="nav" aria-label="Navigation des jeux"><button class="arrow" id="prev" type="button" aria-label="Jeu précédent">‹</button><div class="dots" aria-hidden="true"><span class="dot active"></span><span class="dot"></span></div><button class="arrow" id="next" type="button" aria-label="Jeu suivant">›</button></div>
+  </section>
+  <p class="footer">SAINT-MARTIN 2026 · FAIT AVEC UN PEU TROP D’ENTHOUSIASME</p>
+</main>
+<script>
+(() => {
+  const target = new Date('2026-11-21T12:40:00+01:00').getTime();
+  const $ = id => document.getElementById(id);
+  function tick() {
+    const remaining = Math.max(0, target - Date.now());
+    const total = Math.floor(remaining / 1000);
+    $('days').textContent = String(Math.floor(total / 86400)).padStart(2,'0');
+    $('hours').textContent = String(Math.floor((total % 86400) / 3600)).padStart(2,'0');
+    $('minutes').textContent = String(Math.floor((total % 3600) / 60)).padStart(2,'0');
+    $('seconds').textContent = String(total % 60).padStart(2,'0');
+    if (remaining <= 0) $('countTitle').textContent = 'C’est parti !';
+  }
+  tick(); setInterval(tick, 1000);
+  const slider = $('slider'), dots = [...document.querySelectorAll('.dot')], cards = [...document.querySelectorAll('.game')];
+  function activeCard() {
+    const index = Math.round(slider.scrollLeft / (cards[0].getBoundingClientRect().width + 14));
+    dots.forEach((dot,i) => dot.classList.toggle('active', i === Math.min(1,Math.max(0,index))));
+  }
+  $('prev').addEventListener('click', () => slider.scrollBy({left:-(cards[0].getBoundingClientRect().width+14),behavior:'smooth'}));
+  $('next').addEventListener('click', () => slider.scrollBy({left:cards[0].getBoundingClientRect().width+14,behavior:'smooth'}));
+  slider.addEventListener('scroll', activeCard, {passive:true});
+  window.addEventListener('resize', activeCard);
+})();
+</script>
+</body>
+</html>
